@@ -31,3 +31,20 @@
     border: 0.1vw solid black;
     background-color: red;
 }
+#scoreboard{
+    border: 0.1vw solid black;
+    position: absolute;
+    right: 0;
+    font-size: 40px;
+    width: 20vw;
+    height: fit-content;
+}
+#highscore{
+    border: 0.1vw solid black;
+    position: absolute;
+    left: 0;
+    top: inherit;
+    font-size: 40px;
+    width: 20vw;
+    height: fit-content;
+}
