@@ -4,7 +4,7 @@ let lasttime = 0;
 let snakeloc = [
     {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25) }
 ];
-let food = {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25)};
+let food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
 let inputdir = { x: 0, y: 0};
 let score = 0;
 // let snakeloc = [
@@ -32,7 +32,7 @@ gamefunction = function(){
         snakeloc = [
             {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25) }
         ];
-        food = {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25)};
+        food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
         score = 0;
     }
 
@@ -40,7 +40,7 @@ gamefunction = function(){
     if(snakeloc[0].y == food.y && snakeloc[0].x == food.x){
          score+=1;
          snakeloc.unshift({x: snakeloc[0].x + inputdir.x, y: snakeloc[0].y + inputdir.y}) ;
-         food = {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25)};
+         food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
          console.log(snakeloc.length);
 
     } 
