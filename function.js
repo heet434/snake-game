@@ -4,17 +4,23 @@ let lasttime = 0;
 let snakeloc = [
     {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25) }
 ];
-let food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
+let food = {x: 1 + Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
 let inputdir = { x: 0, y: 0};
 let score = 0;
 // let snakeloc = [
 //     {x: 12, y: 13 }
 // ]
 // let food = {x: 2, y: 5}
+let highscore =0;
+tempsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
+if(tempsnakespeed==null || tempsnakespeed==''){
+    snakespeed=15;
+}else{
+    snakespeed=tempsnakespeed;
+}
 
 gamefunction = function(){
-
-
+    
     //when snake collapses
 
     function snakecollapse(snakeloc){
@@ -28,23 +34,32 @@ gamefunction = function(){
 
     if(snakecollapse(snakeloc)){
          inputdir = {x: 0, y: 0 };
-        alert('game over, press key to play again');
+        alert('game over, press enter to play again');
         snakeloc = [
             {x: Math.floor(Math.random() * 25), y: Math.floor(Math.random() * 25) }
         ];
-        food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
+        food = {x: 1+ Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
+        if(score>highscore){highscore=score;}
         score = 0;
-    }
+        // window.addEventListener('keydown',goagain());
+        document.getElementById("highscore").innerHTML = '<p> highscore:'+highscore+'</p>';
+        // tempsnakespeedsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
+        // if(tempsnakespeed==null || tempsnakespeed==''){
+        //     snakespeed=15;
+        // }else{
+        //     snakespeed=tempsnakespeed;
+        // }
 
+    }
     //when snake eats food
     if(snakeloc[0].y == food.y && snakeloc[0].x == food.x){
          score+=1;
+         document.getElementById("scoreboard").innerHTML = '<p> score :'+score+'</p>';
          snakeloc.unshift({x: snakeloc[0].x + inputdir.x, y: snakeloc[0].y + inputdir.y}) ;
-         food = {x: Math.floor(Math.random() * 24), y: Math.floor(Math.random() * 24)};
-         console.log(snakeloc.length);
-
+         food = {x: 1 + Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
+        //  console.log(snakeloc.length);
     } 
-
+    // highscore=score;
     //for boundaries
     switch(snakeloc[0].x){
         case 0: 
@@ -63,7 +78,7 @@ gamefunction = function(){
             snakeloc[0].y =1;
             break;
     }
-    console.log(snakeloc[0].x+ ' ' + snakeloc[0].y);
+    // console.log(snakeloc[0].x+ ' ' + snakeloc[0].y);
     
     //to move snake
     for(let i = snakeloc.length-2; i>=0; i--){
