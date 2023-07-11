@@ -41,6 +41,7 @@ gamefunction = function(){
         food = {x: 1+ Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
         if(score>highscore){highscore=score;}
         score = 0;
+         document.getElementById("scoreboard").innerHTML = '<p> score :'+score+'</p>';
         // window.addEventListener('keydown',goagain());
         document.getElementById("highscore").innerHTML = '<p> highscore:'+highscore+'</p>';
         // tempsnakespeedsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
