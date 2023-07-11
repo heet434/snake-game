@@ -1,0 +1,33 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#snakebox{
+    margin: auto;
+    width: 50vw;
+    height: 50vw;
+    border: 0.3vw solid black;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(25, 1fr);
+}
+
+.snakehead{
+    box-sizing: border-box;
+    border: 0.1vw solid black;
+    background-color: rebeccapurple;
+}
+
+.snake{
+    box-sizing: border-box;
+    border: 0.1vw solid black;
+    background-color: greenyellow;
+    
+}
+
+.food{
+    box-sizing: border-box;
+    border: 0.1vw solid black;
+    background-color: red;
+}
