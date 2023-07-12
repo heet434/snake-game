@@ -6,7 +6,7 @@
 #snakebox{
     margin: auto;
     width: 50vw;
-    height: 50vh;
+    height: 90vh;
     border: 0.3vw solid black;
     display: grid;
     grid-template-columns: repeat(25, 1fr);
