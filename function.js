@@ -18,7 +18,7 @@ if(tempsnakespeed==null || tempsnakespeed==''){
 }else{
     snakespeed=tempsnakespeed;
 }
-// document.getElementById("speedbox").innerHTML = "<p>Speed : " + speed + "</p>";
+document.getElementById("speedbox").innerHTML = "<p>Speed : " + snakespeed + "</p>";
 gamefunction = function(){
     
     //when snake collapses
