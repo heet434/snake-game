@@ -48,3 +48,10 @@
     width: 20vw;
     height: fit-content;
 }
+#speedbox{
+    border: 0.1vw solid black;
+    position : relative;
+    top:0;
+    font-size: 30px;
+}
+
