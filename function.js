@@ -12,7 +12,7 @@ let score = 0;
 // ]
 // let food = {x: 2, y: 5}
 let highscore =0;
-tempsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
+tempsnakespeed = window.prompt("enter the snake speed you want between 10 to 30:",'15');
 if(tempsnakespeed==null || tempsnakespeed==''){
     snakespeed=15;
 }else{
