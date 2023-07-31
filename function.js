@@ -6,6 +6,7 @@ let snakeloc = [
 ];
 let food = {x: 1 + Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
 let inputdir = { x: 0, y: 0};
+let snake2dir = {x:0, y: 0};
 let score = 0;
 // let snakeloc = [
 //     {x: 12, y: 13 }
@@ -24,6 +25,15 @@ gamefunction = function(){
     //when snake collapses
 
     function snakecollapse(snakeloc){
+    //so snake cant turn back
+        if(snakeloc.length>=2){
+            if(inputdir.x == -snake2dir.x || inputdir.y == -snake2dir.y){
+                inputdir.x = snake2dir.x;
+                inputdir.y = snake2dir.y;
+            }
+        }
+        
+        
         for(let i=1; i<snakeloc.length; i++){
             if(snakeloc[0].x == snakeloc[i].x && snakeloc[0].y == snakeloc[i].y){
                 return true;
