@@ -13,27 +13,24 @@ let score = 0;
 // ]
 // let food = {x: 2, y: 5}
 let highscore =0;
-tempsnakespeed = window.prompt("enter the snake speed you want between 10 to 30:",'15');
+tempsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
 if(tempsnakespeed==null || tempsnakespeed==''){
     snakespeed=15;
 }else{
     snakespeed=tempsnakespeed;
 }
-document.getElementById("speedbox").innerHTML = "<p>Speed : " + snakespeed + "</p>";
+
 gamefunction = function(){
     
     //when snake collapses
 
     function snakecollapse(snakeloc){
-    //so snake cant turn back
         if(snakeloc.length>=2){
             if(inputdir.x == -snake2dir.x || inputdir.y == -snake2dir.y){
                 inputdir.x = snake2dir.x;
                 inputdir.y = snake2dir.y;
             }
         }
-        
-        
         for(let i=1; i<snakeloc.length; i++){
             if(snakeloc[0].x == snakeloc[i].x && snakeloc[0].y == snakeloc[i].y){
                 return true;
@@ -51,16 +48,9 @@ gamefunction = function(){
         food = {x: 1+ Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
         if(score>highscore){highscore=score;}
         score = 0;
-         document.getElementById("scoreboard").innerHTML = '<p> score :'+score+'</p>';
-        // window.addEventListener('keydown',goagain());
+    
         document.getElementById("highscore").innerHTML = '<p> highscore:'+highscore+'</p>';
-        // tempsnakespeedsnakespeed = window.prompt("enter the snake speed you want between 10 to 20:",'15');
-        // if(tempsnakespeed==null || tempsnakespeed==''){
-        //     snakespeed=15;
-        // }else{
-        //     snakespeed=tempsnakespeed;
-        // }
-
+    
     }
     //when snake eats food
     if(snakeloc[0].y == food.y && snakeloc[0].x == food.x){
@@ -70,7 +60,7 @@ gamefunction = function(){
          food = {x: 1 + Math.floor(Math.random() * 24), y: 1 + Math.floor(Math.random() * 24)};
         //  console.log(snakeloc.length);
     } 
-    // highscore=score;
+
     //for boundaries
     switch(snakeloc[0].x){
         case 0: 
@@ -94,6 +84,10 @@ gamefunction = function(){
     //to move snake
     for(let i = snakeloc.length-2; i>=0; i--){
         snakeloc[i+1] = {...snakeloc[i]}; 
+    }
+    if(snakeloc.length>=2){
+        snake2dir.x = inputdir.x;
+        snake2dir.y = inputdir.y;
     }
     snakeloc[0].x +=inputdir.x;
     snakeloc[0].y +=inputdir.y;
